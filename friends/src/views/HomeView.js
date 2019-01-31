@@ -3,12 +3,34 @@ import { connect } from "react-redux"
 
 import FriendList from "../components/FriendList";
 import FriendForm from "../components/FriendForm";
-import { getFriends } from "../store/actions"
+import { getFriends, addFriend } from "../store/actions"
 
 class HomeView extends React.Component {
+    state = {
+        friend: {
+            age: null,
+            name: "",
+            email: ""
+        }
+    }
 
     componentDidMount() {
         this.props.getFriends()
+    }
+
+    populateForm = e => {
+        e.preventDefault();
+        this.setState({
+            friend: {
+                ...this.state.friend,
+                [e.target.name]: e.target.value
+            }
+        })
+    }
+
+    addNewFriend = e => {
+        e.preventDefault();
+        this.props.addFriend(this.state.friend)
     }
 
     render() {
@@ -26,7 +48,10 @@ class HomeView extends React.Component {
                 {this.props.error && (
                     <p>{this.props.error}</p>
                 )}
-                <FriendForm/>
+                <FriendForm
+                    addNewFriend={this.addNewFriend}
+                    populateForm={this.populateForm}
+                />
             </>
         )
     }
@@ -41,6 +66,7 @@ const mapStateToProps = state => ({
 export default connect(
     mapStateToProps,
     {
-        getFriends
+        getFriends,
+        addFriend
     }
 )(HomeView);

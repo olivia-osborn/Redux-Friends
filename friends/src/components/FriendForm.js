@@ -1,13 +1,28 @@
 import React from "react";
 
 function FriendForm(props) {
+
     return (
-        <form onSubmit={props.addNewFriend}>  
+        <form>  
             <input
-            type="text"
-            placeholder="New Friend Name"
+                type="text"
+                placeholder="Name..."
+                onChange={props.populateForm}
+                name="name"
             />
-            <button type="submit">Add new friend</button>
+            <input
+                type="text"
+                placeholder="Age..."
+                onChange={props.populateForm}
+                name="age"
+            />
+            <input
+                type="text"
+                placeholder="email..."
+                onChange={props.populateForm}
+                name="email"
+            />
+            <button onClick={e => props.addNewFriend(e)}>Add new friend</button>
         </form>
     )
 }
