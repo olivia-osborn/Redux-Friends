@@ -15,7 +15,7 @@ export const getFriends = () => dispatch => {
         })
         .catch(err => {
             console.log(err)
-            dispatch({type: FETCHING_FRIENDS_FAILURE, payload: error})
+            dispatch({type: FETCHING_FRIENDS_FAILURE, payload: err})
         })
 }
     
