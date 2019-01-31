@@ -2,9 +2,10 @@ import React from "react";
 import { connect } from "react-redux"
 
 import FriendList from "../components/FriendList";
+import FriendForm from "../components/FriendForm";
 import { getFriends } from "../store/actions"
 
-class ListView extends React.Component {
+class HomeView extends React.Component {
 
     componentDidMount() {
         this.props.getFriends()
@@ -14,23 +15,22 @@ class ListView extends React.Component {
         console.log("Rendering", this.props.friendsList)
         return (
             <>
-            {this.props.isFetchingFriends && (
-                <h4>Wait while we fetch your data...</h4>
-            )}
-            {this.props.friendsList && (
-                <FriendList 
-                    friendsList={this.props.friendsList}
-                />
-            )}
-            {this.props.error && (
-                <p>{this.props.error}</p>
-            )}
+                {this.props.isFetchingFriends && (
+                    <h4>Wait while we fetch your data...</h4>
+                )}
+                {this.props.friendsList && (
+                    <FriendList 
+                        friendsList={this.props.friendsList}
+                    />
+                )}
+                {this.props.error && (
+                    <p>{this.props.error}</p>
+                )}
+                <FriendForm/>
             </>
         )
     }
 }
-
-
 
 const mapStateToProps = state => ({
     friendsList: state.friendsList,
@@ -43,4 +43,4 @@ export default connect(
     {
         getFriends
     }
-)(ListView);
+)(HomeView);

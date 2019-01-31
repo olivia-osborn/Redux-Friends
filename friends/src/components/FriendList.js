@@ -4,7 +4,7 @@ import Friend from "./Friend";
 function FriendList(props) {
     return (
         props.friendsList.map(friend => 
-            <Friend friend={friend}/>)
+            <Friend key={friend.id} friend={friend}/>)
     )
 }
 
