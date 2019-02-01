@@ -1,12 +1,13 @@
 import React from "react";
+import "./Friend.css";
 
 function Friend(props) {
     return (
-        <>
-            <p>{props.friend.name}</p>
-            <p>{props.friend.age}</p>
+        <div className="friend">
+            <p className="name">{props.friend.name}</p>
+            <p>age: {props.friend.age}</p>
             <p>{props.friend.email}</p>
-        </>
+        </div>
     )
 }
 

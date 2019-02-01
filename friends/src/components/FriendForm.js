@@ -1,9 +1,10 @@
 import React from "react";
+import "./FriendForm.css";
 
 function FriendForm(props) {
 
     return (
-        <form>  
+        <form className="form">  
             <input
                 type="text"
                 placeholder="Name..."

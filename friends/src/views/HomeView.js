@@ -30,7 +30,14 @@ class HomeView extends React.Component {
 
     addNewFriend = e => {
         e.preventDefault();
-        this.props.addFriend(this.state.friend)
+        this.state.friend.name && this.state.friend.age && this.state.friend.email && this.props.addFriend(this.state.friend)
+        this.setState({
+            friend: {
+                age: null,
+                name: "",
+                email: ""
+            }
+        })
     }
 
     render() {
@@ -60,7 +67,7 @@ class HomeView extends React.Component {
 const mapStateToProps = state => ({
     friendsList: state.friendsList,
     error: state.error,
-    isFetchingFriends: state.isFetchingFriends
+    isFetchingFriends: state.isFetchingFriends,
 });
 
 export default connect(
