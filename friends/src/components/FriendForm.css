@@ -1,0 +1,29 @@
+.form {
+    position: fixed;
+    bottom: 0;
+    background-color: rgb(160, 215, 233);
+    padding-top: 40px;
+    padding-bottom: 40px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.form input {
+    font-size: 1rem;
+    padding: 5px;
+}
+
+.form button {
+    background: rgb(208, 245, 255);
+    border: 1px solid #757575;
+    color: #757575;
+    font-size: 1rem;
+    border-radius: 2px;
+    padding: 0 10px;
+}
+
+.form button:hover {
+    background: white;
+    cursor: pointer;
+}

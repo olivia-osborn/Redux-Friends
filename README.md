@@ -1,7 +1,7 @@
 # Redux Friends
 
 Topics:
-
+ 
 * `axios` package
 * AJAX
 * Promises
